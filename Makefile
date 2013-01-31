@@ -5,7 +5,7 @@ default:
 	@echo "Please use one of the following targets for make:"
 	@-cat Makefile | egrep '^[^[:space:]]+:' | awk -F: '{print $$1}' | sed 's/^/  /' | grep -v default
 
-all: zshrc vim
+all: zshrc vim workdir
 
 zshrc:
 	rm -f ~/.zshrc
@@ -14,6 +14,10 @@ zshrc:
 
 vim:
 	rm -f ~/.vimrc ~/.gvimrc
-	ln -s ~/.home/.vim/.vimrc ~/.vimrc 
-	ln -s ~/.home/.vim/.gvimrc ~/.gvimrc 
+	ln -s ~/.home/.vim/vimrc ~/.vimrc 
+	ln -s ~/.home/.vim/gvimrc ~/.gvimrc 
+	mkdir -p ~/.tmp/vim
 
+
+workdir:
+	mkdir -p ~/work/tmp ~/work/projects 
