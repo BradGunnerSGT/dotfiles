@@ -3,6 +3,8 @@ zhome=$HOME/.home/.zshrcd
 fpath=($zhome/functions $fpath)
 
 alias vi=vim
+export PAGER=less
+export EDITOR=vim
 
 autoload -U promptinit
 promptinit
