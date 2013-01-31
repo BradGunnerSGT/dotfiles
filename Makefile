@@ -3,11 +3,14 @@
 # show a list of all of the make targets
 default:
 	@echo "Please use one of the following targets for make:"
-	@-cat Makefile | egrep '^[^[:space:]]+:' | awk -F: '{print $$1}' | sed 's/^/  /'
+	@-cat Makefile | egrep '^[^[:space:]]+:' | awk -F: '{print $$1}' | sed 's/^/  /' | grep -v default
+
+all: zshrc vim
 
 zshrc:
 	rm -f ~/.zshrc
 	ln -s ~/.home/.zshrcd/zshrc ~/.zshrc
+
 
 vim:
 	rm -f ~/.vimrc ~/.gvimrc
