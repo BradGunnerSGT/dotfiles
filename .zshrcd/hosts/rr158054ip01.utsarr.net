@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+# fix a problem with rake and zsh
+alias rake="noglob rake"
+

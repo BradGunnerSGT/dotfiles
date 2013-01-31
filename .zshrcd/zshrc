@@ -1,0 +1,17 @@
+PATH="$HOME/.home/bin:$PATH"
+zhome=$HOME/.home/.zshrcd
+fpath=($zhome/functions $fpath)
+
+alias vi=vim
+
+autoload -U promptinit
+promptinit
+prompt adam2
+
+# display the hostname in the title
+autoload -U zsh-set-title
+zsh-set-title
+
+if [ -f $zhome/hosts/`hostname` ]; then
+    source $zhome/hosts/`hostname`
+fi
