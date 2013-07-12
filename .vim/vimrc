@@ -1,3 +1,7 @@
+execute pathogen#infect()
+
 set bg=dark
 set backupdir=~/.tmp/vim,.
 set directory=~/.tmp/vim,.
+set paste
+

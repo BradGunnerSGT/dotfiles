@@ -3,16 +3,51 @@ zhome=$HOME/.home/.zshrcd
 fpath=($zhome/functions $fpath)
 
 alias vi=vim
+alias view="vim -R"
+alias less="less -F"
 export PAGER=less
 export EDITOR=vim
 
-autoload -U promptinit
-promptinit
-prompt adam2
+# use VI keybindings
+set -o vi
 
-# display the hostname in the title
-autoload -U zsh-set-title
-zsh-set-title
+# load the promptinit plugin
+autoload -U promptinit && promptinit
+# load the vcs_info plugin
+autoload -Uz vcs_info 
+
+which svn git > /dev/null
+[ $? = 0 ] && HAS_VCS=1
+
+
+if [ x"$SSH_CLIENT" = "x" ]; then
+  # logged in locally
+
+  # load the function to display the hostname in the screen or X terminal title
+  # note: you have to set the title once, after that the precmd + ssh LocalCommand will do the rest
+  autoload -U zsh-set-title
+  zsh-set-title
+ 
+  # set the prompt
+  prompt adam2 green
+
+  precmd() {
+    zsh-set-title
+    if [ $HAS_VCS = 1 ]; then
+      vcs_info
+    fi
+  }
+
+else
+  prompt adam2 yellow
+fi
+
+
+
+
+if [ -f $zhome/os/`uname -s` ]; then
+    source $zhome/os/`uname -s`
+fi
 
 if [ -f $zhome/hosts/`hostname` ]; then
     source $zhome/hosts/`hostname`
