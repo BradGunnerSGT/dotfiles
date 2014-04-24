@@ -19,6 +19,13 @@ git-work:
 	rm -f ~/.gitconfig
 	ln -s $(PWD)/.gitconfig-personal ~/.gitconfig
 
+oh-my-zsh:
+	@[ -d ~/.oh-my-zsh ] || ( \
+	    echo "Cloning the oh-my-zsh repository" && \
+	    cd $(HOME) && \
+	    git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh \
+	)
+
 tmux:
 	@echo
 	@echo "setting up tmux"
@@ -44,9 +51,10 @@ workdir:
 	@echo "setting up the work area"
 	mkdir -p ~/work/tmp ~/work/projects 
 
-zshrc:
-	@echo
+zshrc: oh-my-zsh
 	@echo "setting up ZSH"
 	rm -f ~/.zshrc
-	ln -s $(PWD)/.zshrcd/zshrc ~/.zshrc
+	ln -s $(PWD)/.zshrc ~/.zshrc
+	rm -f ~/.zprofile
+	ln -s $(PWD)/.zprofile ~/.zprofile
 
