@@ -1,0 +1,7 @@
+[user]
+	name = Mark McCoy
+	email = mark@mccoyfam.net
+[color]
+	ui = true
+[push]
+	default = simple

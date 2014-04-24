@@ -7,18 +7,23 @@ default:
 
 all: git vim zshrc workdir
 
-
-git:
+git-personal:
 	@echo
 	@echo "setting up GIT"
 	rm -f ~/.gitconfig
-	ln -s ~/.home/.gitconfig ~/.gitconfig
+	ln -s $(PWD)/.gitconfig-personal ~/.gitconfig
+
+git-work:
+	@echo
+	@echo "setting up GIT"
+	rm -f ~/.gitconfig
+	ln -s $(PWD)/.gitconfig-personal ~/.gitconfig
 
 vim:
 	@echo
 	@echo "setting up VIM"
 	rm -fr ~/.vimrc ~/.gvimrc ~/.vim
-	ln -s ~/.home/.vim ~/.vim
+	ln -s $(PWD)/.vim ~/.vim
 	ln -s ~/.vim/vimrc ~/.vimrc 
 	ln -s ~/.vim/gvimrc ~/.gvimrc 
 
@@ -27,7 +32,7 @@ zshrc:
 	@echo
 	@echo "setting up ZSH"
 	rm -f ~/.zshrc
-	ln -s ~/.home/.zshrcd/zshrc ~/.zshrc
+	ln -s $(PWD)/.zshrcd/zshrc ~/.zshrc
 
 
 workdir:

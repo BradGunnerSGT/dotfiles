@@ -1,5 +1,7 @@
 [user]
 	name = Mark McCoy
-	email = mark@mccoyfam.net
+	email = mark.mccoy@utsa.edu
+[color]
+	ui = true
 [push]
 	default = simple
