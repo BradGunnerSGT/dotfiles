@@ -50,3 +50,8 @@ setopt APPEND_HISTORY
 set -o vi
 
 alias tmux="tmux -2"
+
+# prepend the pkgsrc path if needed
+if [ -d /usr/pkg/bin ]; then
+  export PATH=/usr/pkg/bin:/usr/pkg/sbin:$PATH
+fi
