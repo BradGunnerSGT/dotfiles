@@ -33,14 +33,14 @@ vim: vim-submodules
 	ln -s ~/.vim/vimrc ~/.vimrc 
 	ln -s ~/.vim/gvimrc ~/.gvimrc 
 
+workdir:
+	@echo
+	@echo "setting up the work area"
+	mkdir -p ~/work/tmp ~/work/projects 
+
 zshrc:
 	@echo
 	@echo "setting up ZSH"
 	rm -f ~/.zshrc
 	ln -s $(PWD)/.zshrcd/zshrc ~/.zshrc
 
-
-workdir:
-	@echo
-	@echo "setting up the work area"
-	mkdir -p ~/work/tmp ~/work/projects 
