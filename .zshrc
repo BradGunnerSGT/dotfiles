@@ -49,9 +49,19 @@ source $ZSH/oh-my-zsh.sh
 setopt APPEND_HISTORY
 set -o vi
 
+export EDITOR=vi
+which vim > /dev/null
+[ $? = 0 ] && export EDITOR=vim
+
 alias tmux="tmux -2"
 
 # prepend the pkgsrc path if needed
 if [ -d /usr/pkg/bin ]; then
   export PATH=/usr/pkg/bin:/usr/pkg/sbin:$PATH
+fi
+
+# customize per machine
+HOSTRC=$HOME/.dotfiles/.zshrc.$HOST
+if [ -f $HOSTRC ]; then
+  source $HOSTRC
 fi
