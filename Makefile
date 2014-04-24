@@ -19,6 +19,12 @@ git-work:
 	rm -f ~/.gitconfig
 	ln -s $(PWD)/.gitconfig-personal ~/.gitconfig
 
+tmux:
+	@echo
+	@echo "setting up tmux"
+	rm -f ~/.tmux.conf
+	ln -s $(PWD)/.tmux.conf ~/.tmux.conf
+
 vim-submodules:
 	@echo
 	@echo "updating dependencies for VIM"
