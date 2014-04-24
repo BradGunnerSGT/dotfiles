@@ -19,7 +19,12 @@ git-work:
 	rm -f ~/.gitconfig
 	ln -s $(PWD)/.gitconfig-personal ~/.gitconfig
 
-vim:
+vim-submodules:
+	@echo
+	@echo "updating dependencies for VIM"
+	@git submodule update --init --recursive
+
+vim: vim-submodules
 	@echo
 	@echo "setting up VIM"
 	rm -f ~/.vimrc ~/.gvimrc 
@@ -27,7 +32,6 @@ vim:
 	ln -s $(PWD)/.vim ~/.vim
 	ln -s ~/.vim/vimrc ~/.vimrc 
 	ln -s ~/.vim/gvimrc ~/.gvimrc 
-
 
 zshrc:
 	@echo
