@@ -22,7 +22,8 @@ git-work:
 vim:
 	@echo
 	@echo "setting up VIM"
-	rm -fr ~/.vimrc ~/.gvimrc ~/.vim
+	rm -f ~/.vimrc ~/.gvimrc 
+	rm -f ~/.vim
 	ln -s $(PWD)/.vim ~/.vim
 	ln -s ~/.vim/vimrc ~/.vimrc 
 	ln -s ~/.vim/gvimrc ~/.gvimrc 
