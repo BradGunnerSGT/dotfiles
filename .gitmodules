@@ -3,4 +3,7 @@
 	url = git://github.com/tpope/vim-sensible.git
 [submodule ".vim/bundle/javascript"]
 	path = .vim/bundle/javascript
-	url = git@github.com:pangloss/vim-javascript.git
+	url = git://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/json"]
+	path = .vim/bundle/json
+	url = git://github.com/elzr/vim-json.git
