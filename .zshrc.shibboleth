@@ -1,0 +1,8 @@
+
+shibbdir=/opt/shibboleth/idp
+cdpath=( $shibbdir )
+
+alias follow="less +F"
+alias process-log="follow /var/log/shibboleth/idp-process.log"
+alias tomcat-log="follow /var/log/tomcat6/catalina.out"
+

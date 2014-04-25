@@ -1,5 +1,0 @@
-# customize per machine
-HOSTRC=$HOME/.dotfiles/.zshrc.$HOST
-if [ -f $HOSTRC ]; then
-  source $HOSTRC
-fi
