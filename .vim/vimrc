@@ -3,6 +3,22 @@ execute pathogen#infect()
 set bg=dark
 set backupdir=~/.tmp/vim,.
 set directory=~/.tmp/vim,.
-set paste
+"set paste
 
 colorscheme desert
+
+set statusline=
+set statusline+=[%n]\   "buffer number
+set statusline+=%f\     "tail of the filename
+set statusline+=%m      "modified flag
+set statusline+=%=      "left/right separator
+"set statusline+=%h      "help file flag
+set statusline+=%r      "read only flag
+set statusline+=%w      "preview flag
+set statusline+=%y      "filetype
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}] "file format
+set statusline+=\ %c,   "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P\    "percent through file
+
