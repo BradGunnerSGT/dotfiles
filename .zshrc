@@ -42,7 +42,11 @@ ZSH_THEME="mortalscumbag"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git python ruby sudo zsh-syntax-highlighting)
-
+OSTYPE=`uname -s`
+if [ "x$OSTYPE" = "xDarwin" ]; then
+	  plugins+="osx"
+fi
+#echo -n "Loading oh-my-zsh with plugins: " ; for i in $plugins ; do echo -n "$i " ; done ; echo
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
