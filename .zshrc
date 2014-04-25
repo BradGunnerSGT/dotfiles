@@ -55,7 +55,7 @@ unsetopt share_history
 set -o vi
 
 export EDITOR=vi
-which vim > /dev/null
+type -p vim | grep -v "not found" 2>&1 > /dev/null
 [ $? = 0 ] && export EDITOR=vim
 
 alias tmux="tmux -2"
