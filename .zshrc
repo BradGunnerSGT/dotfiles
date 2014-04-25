@@ -43,14 +43,15 @@ ZSH_THEME="mortalscumbag"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git python ruby sudo zsh-syntax-highlighting)
 OSTYPE=`uname -s`
-if [ "x$OSTYPE" = "xDarwin" ]; then
-	  plugins+="osx"
-fi
+[ "x$OSTYPE" = "xDarwin" ] && plugins+="osx"
 #echo -n "Loading oh-my-zsh with plugins: " ; for i in $plugins ; do echo -n "$i " ; done ; echo
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-setopt APPEND_HISTORY
+
+### fix oh-my-zsh's stupid history default
+setopt append_history
+unsetopt share_history
 set -o vi
 
 export EDITOR=vi
