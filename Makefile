@@ -45,6 +45,7 @@ vim: vim-submodules
 	@ln -s $(PWD)/.vim ~/.vim
 	@ln -s ~/.vim/vimrc ~/.vimrc 
 	@ln -s ~/.vim/gvimrc ~/.gvimrc 
+	@mkdir -p $(HOME)/.tmp/vim
 
 workdir:
 	@echo
