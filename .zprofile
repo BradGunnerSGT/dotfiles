@@ -5,8 +5,8 @@ if [ $? = 0 ]; then
   source $HOME/.keychain/$HOST-sh
 fi
 
-which tmux 2>&1 > /dev/null
-if [ $? ]; then
+type -p tmux | grep -v "not found" 2>&1 > /dev/null 
+if [ $? = 0 ]; then
     print "Available tmux sessions:"
     tmux list-sessions
 fi
