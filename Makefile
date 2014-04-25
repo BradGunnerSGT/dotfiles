@@ -35,6 +35,7 @@ tmux:
 vim-submodules:
 	@echo
 	@echo "updating dependencies for VIM"
+	@git submodule sync
 	@git submodule update --init --recursive
 
 vim: vim-submodules
