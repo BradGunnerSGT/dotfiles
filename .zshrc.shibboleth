@@ -4,7 +4,7 @@ cdpath+=$shibbdir
 
 # tail +F follows the file by name, so this will tail even after
 # the log file is rotated
-alias follow="tail +F"
+alias follow="tail -F"
 alias process-log="follow /var/log/shibboleth/idp-process.log"
 alias tomcat-log="follow /var/log/tomcat6/catalina.out"
 
