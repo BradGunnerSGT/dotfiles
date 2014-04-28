@@ -75,13 +75,13 @@ fi
 # customize per OS type
 OSRC=$HOME/.dotfiles/.zshrc.os/`uname -s`
 if [ -f $OSRC ]; then
-  print "Loading RC file for" `basename $OSRC` "hosts"
+  #print "Loading RC file for" `basename $OSRC` "hosts"
   source $OSRC
 fi
 
 # customize per machine
 HOSTRC=$HOME/.dotfiles/.zshrc.hosts/$HOST
 if [ -f $HOSTRC ]; then
-  print "Loading RC file for" `basename $HOSTRC`
+  #print "Loading RC file for" `basename $HOSTRC`
   source $HOSTRC
 fi
