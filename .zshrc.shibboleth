@@ -1,3 +1,4 @@
+print "Loading RC file for Shibboleth hosts"
 
 shibbdir=/opt/shibboleth/idp
 cdpath+=$shibbdir

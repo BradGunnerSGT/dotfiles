@@ -49,6 +49,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+# export the location of the DOTFILES
+export DOTFILES=$HOME/.dotfiles
+
 ### fix oh-my-zsh's stupid history default
 setopt append_history
 unsetopt share_history
@@ -69,8 +72,16 @@ if [ -d /usr/pkg/bin ]; then
   export PATH=/usr/pkg/bin:/usr/pkg/sbin:$PATH
 fi
 
+# customize per OS type
+OSRC=$HOME/.dotfiles/.zshrc.os/`uname -s`
+if [ -f $OSRC ]; then
+  print "Loading RC file for" `basename $OSRC` "hosts"
+  source $OSRC
+fi
+
 # customize per machine
-HOSTRC=$HOME/.dotfiles/.zshrc.$HOST
+HOSTRC=$HOME/.dotfiles/.zshrc.hosts/$HOST
 if [ -f $HOSTRC ]; then
+  print "Loading RC file for" `basename $HOSTRC`
   source $HOSTRC
 fi
