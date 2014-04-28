@@ -64,7 +64,7 @@ type -p vim > /dev/null
 type -p tmux > /dev/null
 if [ $? = 0 ]; then 
   alias tmux="tmux -2" 
-  alias tattach="tmux attach || tmux new-session" 
+  alias tattach="tmux attach || tmux new-session -s default" 
 fi
 
 # prepend the pkgsrc path if needed
