@@ -9,4 +9,5 @@ type -p tmux > /dev/null
 if [ $? = 0 ]; then
     print "Available tmux sessions:"
     tmux list-sessions
+    print
 fi
