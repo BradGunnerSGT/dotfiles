@@ -55,10 +55,14 @@ unsetopt share_history
 set -o vi
 
 export EDITOR=vi
-type -p vim | grep -v "not found" 2>&1 > /dev/null
+type -p vim > /dev/null
 [ $? = 0 ] && export EDITOR=vim
 
-alias tmux="tmux -2"
+type -p tmux > /dev/null
+if [ $? = 0 ]; then 
+  alias tmux="tmux -2" 
+  alias tattach="tmux attach || tmux new-session" 
+fi
 
 # prepend the pkgsrc path if needed
 if [ -d /usr/pkg/bin ]; then
