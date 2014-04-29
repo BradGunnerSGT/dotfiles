@@ -57,6 +57,10 @@ setopt append_history
 unsetopt share_history
 set -o vi
 
+# alias to follow a file, e.g. a log file.
+# This command follows the file by name, so this will tail even after the log file is rotated
+alias follow="less --follow-name +F"
+
 export EDITOR=vi
 type -p vim > /dev/null
 [ $? = 0 ] && export EDITOR=vim
