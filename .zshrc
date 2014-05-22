@@ -76,6 +76,15 @@ if [ -d /usr/pkg/bin ]; then
   export PATH=/usr/pkg/bin:/usr/pkg/sbin:$PATH
 fi
 
+# set java_home accordingly
+if [ -x /usr/libexec/java_home ]; then
+  # Mac OS X, use this utility to find system java_home
+  export JAVA_HOME=$(/usr/libexec/java_home)
+elif [ -h /etc/alternatives/java_sdk ]; then
+  # RHEL/Centos
+  export JAVA_HOME=/etc/alternatives/java_sdk
+fi
+
 # customize per OS type
 OSRC=$HOME/.dotfiles/.zshrc.os/`uname -s`
 if [ -f $OSRC ]; then
