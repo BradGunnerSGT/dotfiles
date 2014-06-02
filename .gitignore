@@ -1,2 +1,1 @@
-.*.sw?
-.vim/tmp/.*
+.vim/.netrwhist
