@@ -86,6 +86,6 @@ fi
 # customize per machine
 HOSTRC=$HOME/.dotfiles/.zshrc.hosts/$HOST
 if [ -f $HOSTRC ]; then
-  #print "Loading RC file for" `basename $HOSTRC`
+  print "Loading RC file for" `basename $HOSTRC`
   source $HOSTRC
 fi
