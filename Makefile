@@ -21,13 +21,6 @@ git-work:
 	@rm -f ~/.gitconfig
 	@ln -s $(DOTFILES)/.gitconfig-personal ~/.gitconfig
 
-oh-my-zsh:
-	@[ -d ~/.oh-my-zsh ] || ( \
-	    echo "Cloning the oh-my-zsh repository" && \
-	    cd $(HOME) && \
-	    git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh \
-	)
-
 tmux:
 	@echo
 	@echo "setting up tmux"
