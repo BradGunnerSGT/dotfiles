@@ -7,6 +7,7 @@ antigen bundle ruby
 antigen bundle gem
 antigen bundle python
 antigen bundle pip
+antigen bundle vi-mode
 antigen bundle virtualenv
 # learns recent directories and lets you jump to them quickly
 antigen bundle rupa/z
