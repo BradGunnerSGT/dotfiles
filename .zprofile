@@ -11,3 +11,8 @@ if [ $? = 0 ]; then
     tmux list-sessions 2> /dev/null || print "None"
     print
 fi
+
+if [ -d $HOME/bin ]; then
+    export PATH=$HOME/bin:$PATH
+fi
+
