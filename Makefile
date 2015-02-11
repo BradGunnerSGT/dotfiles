@@ -1,5 +1,7 @@
 # Set up various symlinks to configuration files in the .home directory
 
+DOTFILES=$(PWD)
+
 # show a list of all of the make targets
 default:
 	@echo "Please use one of the following targets for make:"
@@ -11,13 +13,13 @@ git-personal:
 	@echo
 	@echo "setting up GIT"
 	@rm -f ~/.gitconfig
-	@ln -s $(PWD)/.gitconfig-personal ~/.gitconfig
+	@ln -s $(DOTFILES)/.gitconfig-personal ~/.gitconfig
 
 git-work:
 	@echo
 	@echo "setting up GIT"
 	@rm -f ~/.gitconfig
-	@ln -s $(PWD)/.gitconfig-personal ~/.gitconfig
+	@ln -s $(DOTFILES)/.gitconfig-personal ~/.gitconfig
 
 oh-my-zsh:
 	@[ -d ~/.oh-my-zsh ] || ( \
@@ -30,7 +32,7 @@ tmux:
 	@echo
 	@echo "setting up tmux"
 	@rm -f ~/.tmux.conf
-	@ln -s $(PWD)/.tmux.conf ~/.tmux.conf
+	@ln -s $(DOTFILES)/.tmux.conf ~/.tmux.conf
 
 vim-submodules:
 	@echo
@@ -43,7 +45,7 @@ vim: vim-submodules
 	@echo "setting up VIM"
 	@rm -f ~/.vimrc ~/.gvimrc 
 	@rm -f ~/.vim
-	@ln -s $(PWD)/.vim ~/.vim
+	@ln -s $(DOTFILES)/.vim ~/.vim
 	@ln -s ~/.vim/vimrc ~/.vimrc 
 	@ln -s ~/.vim/gvimrc ~/.gvimrc 
 	@mkdir -p $(HOME)/.tmp/vim
@@ -56,7 +58,7 @@ workdir:
 zsh: 
 	@echo "setting up ZSH"
 	@rm -f ~/.zshrc
-	@ln -s $(PWD)/zshrc ~/.zshrc
+	@ln -s $(DOTFILES)/zshrc ~/.zshrc
 	@rm -f ~/.zprofile
-	@ln -s $(PWD)/.zprofile ~/zprofile
+	@ln -s $(DOTFILES)/zprofile ~/.zprofile
 
