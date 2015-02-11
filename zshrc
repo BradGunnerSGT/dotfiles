@@ -49,3 +49,10 @@ alias follow="less --follow-name +F"
 export GEM_HOME=$HOME/.gems
 export PATH=$HOME/.gems/bin:$PATH
 export PATH=$HOME/bin:$PATH
+
+# final customizations per machine
+HOSTRC=$HOME/.dotfiles/.zshrc.hosts/$HOST
+if [ -f $HOSTRC ]; then
+  print "Loading RC file for" `basename $HOSTRC`
+  source $HOSTRC
+fi
