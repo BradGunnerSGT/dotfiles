@@ -15,7 +15,11 @@ antigen bundle rupa/z
 # favorite theme, supports git integration
 antigen theme mortalscumbag
 
-export PATH=/usr/pkg/bin:$PATH
+# prepend the pkgsrc path if needed
+if [ -d /usr/pkg/bin ]; then
+  export PATH=/usr/pkg/bin:/usr/pkg/sbin:$PATH
+fi
+
 type -p tmux > /dev/null
 if [ $? = 0 ]; then 
   antigen bundle tmux
@@ -38,7 +42,9 @@ elif [[ $CURRENT_OS == 'Cygwin' ]]; then
     antigen bundle cygwin
 fi
 
-#antigen bundle ssh-agent
+# alias to follow a file, e.g. a log file.
+# This command follows the file by name, so this will tail even after the log file is rotated
+alias follow="less --follow-name +F"
 
 export GEM_HOME=$HOME/.gems
 export PATH=$HOME/.gems/bin:$PATH
