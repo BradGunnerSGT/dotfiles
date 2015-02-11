@@ -5,7 +5,7 @@ default:
 	@echo "Please use one of the following targets for make:"
 	@-cat Makefile | egrep '^[^[:space:]]+:' | awk -F: '{print $$1}' | sed 's/^/  /' | grep -v default
 
-all: git-work tmux vim zshrc workdir
+all: git-work tmux vim zsh workdir
 
 git-personal:
 	@echo
@@ -53,10 +53,10 @@ workdir:
 	@echo "setting up the work area"
 	@mkdir -p ~/work/tmp ~/work/projects 
 
-zshrc: oh-my-zsh
+zsh: 
 	@echo "setting up ZSH"
 	@rm -f ~/.zshrc
-	@ln -s $(PWD)/.zshrc ~/.zshrc
+	@ln -s $(PWD)/zshrc ~/.zshrc
 	@rm -f ~/.zprofile
-	@ln -s $(PWD)/.zprofile ~/.zprofile
+	@ln -s $(PWD)/.zprofile ~/zprofile
 
