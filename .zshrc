@@ -41,7 +41,7 @@ ZSH_THEME="mortalscumbag"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python ruby sudo zsh-syntax-highlighting)
+plugins=(git python ruby sudo virtualenv zsh-syntax-highlighting)
 OSTYPE=`uname -s`
 [ "x$OSTYPE" = "xDarwin" ] && plugins+="osx"
 #echo -n "Loading oh-my-zsh with plugins: " ; for i in $plugins ; do echo -n "$i " ; done ; echo
@@ -98,3 +98,7 @@ if [ -f $HOSTRC ]; then
   print "Loading RC file for" `basename $HOSTRC`
   source $HOSTRC
 fi
+
+export GEM_HOME=$HOME/.gems
+export PATH=$HOME/.gems/bin:$PATH
+
