@@ -15,18 +15,18 @@ antigen bundle rupa/z
 
 # favorite theme, supports git integration
 antigen theme mortalscumbag
+antigen theme minimal
 
 # prepend the pkgsrc path if needed
 if [ -d /usr/pkg/bin ]; then
   export PATH=/usr/pkg/bin:/usr/pkg/sbin:$PATH
 fi
 
-type -p tmux > /dev/null
-if [ $? = 0 ]; then 
-  antigen bundle tmux
-  alias tmux="tmux -2" 
+type -p tmux > /dev/null && ( 
+  antigen bundle tmux 
+  alias tmux="tmux -2" ; 
   alias tattach="tmux attach || tmux new-session -s default" 
-fi
+)
 
 
 # OS specific plugins
@@ -49,8 +49,7 @@ alias follow="less --follow-name +F"
 
 # set vi as the default editor, unless vim is installed on the path
 export EDITOR=vi
-type -p vim > /dev/null
-[ $? = 0 ] && export EDITOR=vim
+type -p vim > /dev/null && export EDITOR=vim
 
 # install gems into my home dir, instead of messing with system-wide gems
 export GEM_HOME=$HOME/.gems
@@ -64,7 +63,7 @@ unsetopt share_history
 # final customizations per machine
 # TODO move this to an antigen bundle
 HOSTRC=$HOME/.dotfiles/.zshrc.hosts/$HOST
-if [ -f $HOSTRC ]; then
+[ -f $HOSTRC ] && (
   print "Loading RC file for" `basename $HOSTRC`
   source $HOSTRC
-fi
+)
