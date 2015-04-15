@@ -1,32 +1,29 @@
 source $HOME/.antigen/antigen/antigen.zsh
-# pull in deps from oh-my-zsh for things like the theme, etc
-antigen use oh-my-zsh
 antigen bundle git
 antigen bundle ruby
 antigen bundle gem
 antigen bundle python
 antigen bundle pip
 antigen bundle sudo
-antigen bundle vi-mode
-antigen bundle virtualenv
 antigen bundle zsh-users/zsh-syntax-highlighting
-# learns recent directories and lets you jump to them quickly
-antigen bundle rupa/z
+antigen bundle nojhan/liquidprompt
 
-# favorite theme, supports git integration
-antigen theme mortalscumbag
-antigen theme minimal
-
+typeset -U path
 # prepend the pkgsrc path if needed
-if [ -d /usr/pkg/bin ]; then
-  export PATH=/usr/pkg/bin:/usr/pkg/sbin:$PATH
-fi
+path[1,0]=/usr/pkg/bin
+path[1,0]=/usr/pkg/sbin
+# install gems into my home dir, instead of messing with system-wide gems
+export GEM_HOME=$HOME/.gems
+path[1,0]=~/.gems/bin
+path[1,0]=~/bin
+bindkey -v
 
-type -p tmux > /dev/null && ( 
+type -p tmux > /dev/null
+if [ $? = 0 ]; then
   antigen bundle tmux 
   alias tmux="tmux -2" ; 
   alias tattach="tmux attach || tmux new-session -s default" 
-)
+fi
 
 
 # OS specific plugins
@@ -50,15 +47,6 @@ alias follow="less --follow-name +F"
 # set vi as the default editor, unless vim is installed on the path
 export EDITOR=vi
 type -p vim > /dev/null && export EDITOR=vim
-
-# install gems into my home dir, instead of messing with system-wide gems
-export GEM_HOME=$HOME/.gems
-export PATH=$HOME/.gems/bin:$PATH
-export PATH=$HOME/bin:$PATH
-
-### fix oh-my-zsh's stupid history default
-#setopt append_history
-unsetopt share_history
 
 # final customizations per machine
 # TODO move this to an antigen bundle
