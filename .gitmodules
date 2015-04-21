@@ -1,18 +1,18 @@
 [submodule ".vim/bundle/sensible"]
 	path = .vim/bundle/sensible
-	url = git://github.com/tpope/vim-sensible.git
+	url = https://github.com/tpope/vim-sensible.git
 [submodule ".vim/bundle/javascript"]
 	path = .vim/bundle/javascript
-	url = git://github.com/pangloss/vim-javascript.git
+	url = https://github.com/pangloss/vim-javascript.git
 [submodule ".vim/bundle/json"]
 	path = .vim/bundle/json
-	url = git://github.com/elzr/vim-json.git
+	url = https://github.com/elzr/vim-json.git
 [submodule ".vim/bundle/fugitive"]
 	path = .vim/bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/ansible"]
 	path = .vim/bundle/ansible
-	url = git://github.com/chase/vim-ansible-yaml.git
+	url = https://github.com/chase/vim-ansible-yaml.git
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen.git
