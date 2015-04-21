@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/ansible"]
 	path = .vim/bundle/ansible
 	url = git://github.com/chase/vim-ansible-yaml.git
+[submodule "antigen"]
+	path = antigen
+	url = https://github.com/zsh-users/antigen.git
