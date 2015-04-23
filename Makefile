@@ -27,13 +27,13 @@ tmux:
 	@rm -f ~/.tmux.conf
 	@ln -s $(DOTFILES)/.tmux.conf ~/.tmux.conf
 
-vim-submodules:
+git-submodules:
 	@echo
-	@echo "updating dependencies for VIM"
+	@echo "updating git submodules if needed"
 	@git submodule sync
 	@git submodule update --init --recursive
 
-vim: vim-submodules
+vim: git-submodules
 	@echo
 	@echo "setting up VIM"
 	@rm -f ~/.vimrc ~/.gvimrc 
@@ -48,7 +48,7 @@ workdir:
 	@echo "setting up the work area"
 	@mkdir -p ~/work/tmp ~/work/projects 
 
-zsh: 
+zsh: git-submodules
 	@echo "setting up ZSH"
 	@rm -f ~/.zshrc
 	@ln -s $(DOTFILES)/zshrc ~/.zshrc
