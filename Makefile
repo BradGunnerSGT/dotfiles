@@ -7,7 +7,7 @@ default:
 	@echo "Please use one of the following targets for make:"
 	@-cat Makefile | egrep '^[^[:space:]]+:' | awk -F: '{print $$1}' | sed 's/^/  /' | grep -v default
 
-all: git-work tmux vim zsh workdir
+all: git-work tmux keychain vim zsh workdir
 
 git-personal:
 	@echo
@@ -20,6 +20,13 @@ git-work:
 	@echo "setting up GIT"
 	@rm -f ~/.gitconfig
 	@ln -s $(DOTFILES)/.gitconfig-personal ~/.gitconfig
+
+keychain:
+	@echo
+	@echo "setting up keychain"
+	@mkdir -p ~/bin
+	@rm -f ~/bin/keychain
+	@ln -s $(DOTFILES)/bin/keychain ~/bin/keychain
 
 tmux:
 	@echo
